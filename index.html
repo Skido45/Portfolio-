@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samuel Oyekoya (Sammius) — FP&amp;A &amp; Financial Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0F1B2D;
+    --navy-2: #142440;
+    --paper: #F2EFE6;
+    --paper-dim: #E4E0D2;
+    --brass: #B8945F;
+    --brass-bright: #D3B27C;
+    --green: #4C8062;
+    --red: #B25A5A;
+    --ink: #1B1B18;
+    --ink-soft: #56544A;
+    --line: rgba(184,148,95,0.28);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--navy);
+    color:var(--paper);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{ background:var(--brass); color:var(--navy); }
+
+  a{color:inherit;}
+
+  .mono{ font-family:'JetBrains Mono', monospace; }
+
+  /* ---------- Layout shell ---------- */
+  .shell{
+    display:grid;
+    grid-template-columns: 340px 1fr;
+    min-height:100vh;
+  }
+  @media (max-width: 880px){
+    .shell{ grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Left rail ---------- */
+  .rail{
+    background:var(--navy-2);
+    border-right:1px solid var(--line);
+    padding:48px 36px;
+    position:sticky;
+    top:0;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  @media (max-width: 880px){
+    .rail{ position:relative; height:auto; }
+  }
+
+  .rail-photo{
+    width:96px;
+    height:96px;
+    border-radius:50%;
+    overflow:hidden;
+    border:2px solid var(--brass);
+    margin-bottom:22px;
+  }
+  .rail-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center 15%;
+    display:block;
+  }
+
+  .rail h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.85rem;
+    line-height:1.16;
+    letter-spacing:-0.01em;
+    color:var(--paper);
+    margin-bottom:6px;
+  }
+  .rail .alt-name{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:rgba(242,239,230,0.45);
+    margin-bottom:22px;
+  }
+
+  .rail h1 .post-nom{
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.95rem;
+    font-weight:500;
+    color:var(--brass-bright);
+    letter-spacing:0;
+  }
+  .rail .role{
+    font-size:14.5px;
+    color:var(--paper);
+    opacity:0.85;
+    line-height:1.55;
+    margin-bottom:28px;
+    max-width:30ch;
+  }
+
+  .rail-line{
+    border:none;
+    border-top:1px solid var(--line);
+    margin:24px 0;
+  }
+
+  .cred-list{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:26px;
+  }
+  .cred-list li{
+    font-size:13px;
+    display:flex;
+    align-items:baseline;
+    gap:9px;
+    color:rgba(242,239,230,0.9);
+  }
+  .cred-list .tag{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--navy);
+    background:var(--brass-bright);
+    padding:2px 6px;
+    border-radius:2px;
+    letter-spacing:0.03em;
+    flex-shrink:0;
+  }
+
+  .contact-block{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  .contact-block a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    color:var(--brass-bright);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:border-color 0.15s ease;
+    width:fit-content;
+  }
+  .contact-block a:hover{ border-bottom-color:var(--brass-bright); }
+  .contact-block .loc{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px;
+    color:rgba(242,239,230,0.55);
+  }
+
+  .rail-bottom{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:rgba(242,239,230,0.35);
+    letter-spacing:0.04em;
+    padding-top:24px;
+  }
+
+  /* ---------- Right / main ---------- */
+  main{
+    background:var(--paper);
+    color:var(--ink);
+  }
+
+  .section{
+    padding:64px 56px;
+    border-bottom:1px solid rgba(27,27,24,0.08);
+  }
+  @media (max-width: 880px){
+    .section{ padding:44px 24px; }
+  }
+
+  /* Hero */
+  .hero{
+    padding-top:72px;
+  }
+  .hero .kicker{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:20px;
+  }
+  .hero h2{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:clamp(1.9rem, 3.4vw, 2.9rem);
+    line-height:1.22;
+    letter-spacing:-0.01em;
+    max-width:20ch;
+    margin-bottom:26px;
+  }
+  .hero h2 em{
+    font-style:italic;
+    color:var(--brass);
+    font-weight:600;
+  }
+  .hero p.lede{
+    font-size:15.5px;
+    line-height:1.7;
+    color:var(--ink-soft);
+    max-width:58ch;
+  }
+
+  /* Checks strip — signature element */
+  .checks{
+    margin-top:40px;
+    border:1px solid rgba(27,27,24,0.14);
+    background:#fff;
+  }
+  .checks-header{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    padding:10px 18px;
+    border-bottom:1px solid rgba(27,27,24,0.1);
+    background:var(--paper-dim);
+  }
+  .checks-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    border-bottom:1px solid rgba(27,27,24,0.07);
+  }
+  .checks-row:last-child{ border-bottom:none; }
+  .checks-row .label{ color:var(--ink); }
+  .checks-row .status{
+    color:var(--green);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .checks-row .status::before{
+    content:"✓";
+    font-size:13px;
+  }
+
+  /* Section headers */
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:36px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .section-head h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.7rem;
+    letter-spacing:-0.01em;
+  }
+  .section-head .count{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    letter-spacing:0.05em;
+  }
+
+  /* Project schedule rows */
+  .project{
+    border:1px solid rgba(27,27,24,0.12);
+    background:#fff;
+    margin-bottom:20px;
+    transition:border-color 0.15s ease;
+  }
+  .project:hover{ border-color:var(--brass); }
+
+  .project-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    padding:22px 24px 16px;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .project-id{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--brass);
+    letter-spacing:0.08em;
+    margin-bottom:8px;
+    display:block;
+  }
+  .project-head h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.28rem;
+    line-height:1.3;
+    margin-bottom:6px;
+  }
+  .project-sub{
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .project-link{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11.5px;
+    color:var(--navy);
+    background:var(--paper-dim);
+    border:1px solid rgba(27,27,24,0.15);
+    padding:8px 14px;
+    text-decoration:none;
+    white-space:nowrap;
+    transition:background 0.15s ease, color 0.15s ease;
+    flex-shrink:0;
+  }
+  .project-link:hover{
+    background:var(--navy);
+    color:var(--paper);
+  }
+
+  .project-body{
+    padding:0 24px 22px;
+  }
+  .project-body p{
+    font-size:14px;
+    line-height:1.65;
+    color:var(--ink);
+    max-width:70ch;
+    margin-bottom:16px;
+  }
+
+  .metric-strip{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    border-top:1px solid rgba(27,27,24,0.1);
+    margin-top:4px;
+  }
+  .metric{
+    padding:14px 20px 4px 0;
+    margin-right:28px;
+  }
+  .metric .val{
+    font-family:'JetBrains Mono', monospace;
+    font-size:15px;
+    font-weight:600;
+    color:var(--navy);
+  }
+  .metric .val.pos{ color:var(--green); }
+  .metric .val.neg{ color:var(--red); }
+  .metric .lbl{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10px;
+    color:var(--ink-soft);
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    margin-top:3px;
+  }
+
+  .tool-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    padding:16px 24px 22px;
+    border-top:1px solid rgba(27,27,24,0.08);
+  }
+  .tool-tags span{
+    font-family:'JetBrains Mono', monospace;
+    font-size:10.5px;
+    color:var(--ink-soft);
+    background:var(--paper-dim);
+    padding:4px 9px;
+    border-radius:2px;
+  }
+
+  /* Competencies */
+  .comp-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:rgba(27,27,24,0.1);
+    border:1px solid rgba(27,27,24,0.1);
+  }
+  @media (max-width:640px){ .comp-grid{ grid-template-columns:1fr; } }
+  .comp-cell{
+    background:#fff;
+    padding:22px 24px;
+  }
+  .comp-cell .num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px;
+    color:var(--brass);
+    margin-bottom:8px;
+    display:block;
+  }
+  .comp-cell h5{
+    font-family:'Fraunces', serif;
+    font-size:1.05rem;
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .comp-cell p{
+    font-size:13px;
+    line-height:1.6;
+    color:var(--ink-soft);
+  }
+
+  /* Footer / CTA */
+  .footer{
+    padding:56px;
+    background:var(--navy-2);
+    color:var(--paper);
+  }
+  @media (max-width:880px){ .footer{ padding:40px 24px; } }
+  .footer h3{
+    font-family:'Fraunces', serif;
+    font-size:1.7rem;
+    font-weight:600;
+    margin-bottom:14px;
+  }
+  .footer p{
+    font-size:14px;
+    color:rgba(242,239,230,0.7);
+    max-width:52ch;
+    line-height:1.6;
+    margin-bottom:24px;
+  }
+  .footer-links{
+    display:flex;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .footer-links a{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    color:var(--brass-bright);
+    text-decoration:none;
+    border-bottom:1px solid rgba(211,178,124,0.4);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- LEFT RAIL — styled like an "Inputs & Assumptions" tab -->
+  <aside class="rail">
+    <div class="rail-top">
+      <div class="rail-photo"><img src="assets/headshot.png" alt="Oyekoya Samuel Goddey"></div>
+      <h1>Oyekoya Samuel Goddey <span class="post-nom">FMVA®, FPAP™</span></h1>
+      <div class="alt-name">also known professionally as — Sammius</div>
+      <p class="role">FP&amp;A &amp; Financial Analyst building institutional-quality models across valuation, budgeting, and corporate finance — Available for remote work globally and international role; experienced collaborating across UTC±0 to UTC+5 time zones.</p>
+
+      <hr class="rail-line">
+
+      <ul class="cred-list">
+        <li><span class="tag">BSc</span> Finance — University of Ilorin, 2024</li>
+        <li><span class="tag">FMVA®</span> Financial Modeling &amp; Valuation Analyst — CFI</li>
+        <li><span class="tag">FP&amp;A®</span> FP&amp;A Certified — CFI</li>
+        <li><span class="tag">AI</span> AI for Finance Certification — CFI</li>
+        <li><span class="tag">DATA</span> Data Analysis — Idealnovate Africa</li>
+      </ul>
+
+      <hr class="rail-line">
+    </div>
+
+    <div class="rail-bottom">
+      <div class="contact-block">
+        <a href="mailto:samueloyekoya335@gmail.com">samueloyekoya335@gmail.com</a>
+        <a href="https://www.linkedin.com/in/oyekoya-samuel" target="_blank" rel="noopener">linkedin.com/in/oyekoya-samuel</a>
+        <span class="loc">Lagos, Nigeria</span>
+      </div>
+      <div style="margin-top:22px; opacity:0.6;">Last updated — July 2026</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO -->
+    <section class="section hero">
+      <div class="kicker">Portfolio — FP&amp;A &amp; Financial Modeling</div>
+      <h2>Models that <em>tie out</em>, valuations that <em>hold up</em>, and forecasts built to be used.</h2>
+      <p class="lede">
+        I build FP&amp;A, valuation, and 3-statement models to CFI standard — from budgeting &amp; forecasting
+        workbooks to full DCF valuations and executive dashboards. Every model below is fully linked,
+        checks-tab validated, and built for the way finance teams actually work.
+      </p>
+
+      <div class="checks">
+        <div class="checks-header">Portfolio QA — Checks Tab</div>
+        <div class="checks-row"><span class="label">Balance sheet ties across all models</span><span class="status">Passed</span></div>
+        <div class="checks-row"><span class="label">Circularity resolved (revolver / cash sweep)</span><span class="status">Passed</span></div>
+        <div class="checks-row"><span class="label">Formula audit — zero unresolved errors</span><span class="status">Passed</span></div>
+        <div class="checks-row"><span class="label">Sensitivity &amp; scenario tables cross-checked</span><span class="status">Passed</span></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-head">
+        <h3>Model Schedule</h3>
+        <span class="count mono">05 projects</span>
+      </div>
+
+      <!-- Project 1 -->
+      <div class="project">
+        <div class="project-head">
+          <div>
+            <span class="project-id">SCHEDULE 01 — FP&amp;A / BUDGETING &amp; FORECASTING</span>
+            <h4>Vantage Consulting Group — FP&amp;A Budgeting &amp; Forecasting Model</h4>
+            <div class="project-sub">Self-directed portfolio build · Consulting sector</div>
+          </div>
+          <a class="project-link" href="https://docs.google.com/spreadsheets/d/12P_XdhKdn89vn3gneoXkw3Wobm8FDieK/edit?usp=drivesdk&ouid=116947091548994182454&rtpof=true&sd=true" target="_blank" rel="noopener">View model →</a>
+        </div>
+        <div class="project-body">
+          <p>
+            A rolling budgeting and forecasting model built for a hypothetical consulting practice, covering
+            revenue build by service line, headcount &amp; utilization planning, cost budgeting, and
+            variance analysis against actuals. Designed to mirror how a consulting FP&amp;A function
+            actually plans and re-forecasts quarter to quarter.
+          </p>
+          <div class="metric-strip">
+            <div class="metric"><div class="val">Rolling</div><div class="lbl">Forecast cadence</div></div>
+            <div class="metric"><div class="val">Var. Analysis</div><div class="lbl">Budget vs. actual</div></div>
+            <div class="metric"><div class="val pos">Linked</div><div class="lbl">Headcount → cost drivers</div></div>
+          </div>
+        </div>
+        <div class="tool-tags"><span>Excel</span><span>FP&amp;A Forecasting</span><span>Variance Analysis</span><span>Driver-Based Budgeting</span></div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project">
+        <div class="project-head">
+          <div>
+            <span class="project-id">SCHEDULE 02 — 3-STATEMENT MODEL</span>
+            <h4>Dangote Cement Plc — 3-Statement Financial Model</h4>
+            <div class="project-sub">Self-directed portfolio build · Manufacturing / Cement</div>
+          </div>
+          <a class="project-link" href="https://docs.google.com/spreadsheets/d/1uYfxvQvmNeiNDLYCEcNcRF7w-A5yxvHd/edit?usp=drivesdk&ouid=116947091548994182454&rtpof=true&sd=true" target="_blank" rel="noopener">View model →</a>
+        </div>
+        <div class="project-body">
+          <p>
+            A fully integrated income statement, balance sheet, and cash flow model for Dangote Cement Plc,
+            built with a revolving credit facility as the cash plug and working capital schedules driven
+            off historical ratios. Balance sheet ties across every projected period.
+          </p>
+          <div class="metric-strip">
+            <div class="metric"><div class="val">100%</div><div class="lbl">Balance sheet tie-out</div></div>
+            <div class="metric"><div class="val">Revolver</div><div class="lbl">Circularity handling</div></div>
+            <div class="metric"><div class="val pos">0 errors</div><div class="lbl">Formula audit</div></div>
+          </div>
+        </div>
+        <div class="tool-tags"><span>Excel</span><span>Python / openpyxl</span><span>3-Statement Modeling</span><span>Working Capital Schedules</span></div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project">
+        <div class="project-head">
+          <div>
+            <span class="project-id">SCHEDULE 03 — DCF VALUATION</span>
+            <h4>Dangote Cement Plc — DCF Valuation Model</h4>
+            <div class="project-sub">Self-directed portfolio build · Manufacturing / Cement</div>
+          </div>
+          <a class="project-link" href="https://docs.google.com/spreadsheets/d/1j8Gxme65yDfAmleGh3Mo7eS4xVmeSwd7/edit?usp=drivesdk&ouid=116947091548994182454&rtpof=true&sd=true" target="_blank" rel="noopener">View model →</a>
+        </div>
+        <div class="project-body">
+          <p>
+            Institutional-quality DCF built to CFI FMVA standards — full WACC build, dual terminal value
+            methods (perpetuity growth &amp; exit multiple), sensitivity tables, and a football field
+            valuation summary. Implied ~46% upside to market price at the time of build.
+          </p>
+          <div class="metric-strip">
+            <div class="metric"><div class="val">₦619.71</div><div class="lbl">Implied value / share</div></div>
+            <div class="metric"><div class="val">16.16%</div><div class="lbl">WACC</div></div>
+            <div class="metric"><div class="val pos">+46%</div><div class="lbl">Upside vs. market</div></div>
+          </div>
+        </div>
+        <div class="tool-tags"><span>Excel</span><span>Python / openpyxl</span><span>DCF Valuation</span><span>Sensitivity Analysis</span><span>Football Field</span></div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project">
+        <div class="project-head">
+          <div>
+            <span class="project-id">SCHEDULE 04 — EXECUTIVE COMMUNICATION</span>
+            <h4>EBITDA Bridge Presentation</h4>
+            <div class="project-sub">Self-directed portfolio build · Corporate Finance</div>
+          </div>
+          <a class="project-link" href="https://docs.google.com/presentation/d/1ox5OAQpcFVR7OjS7mz3KTOEBAYOlM6Pp/edit?usp=drivesdk&ouid=116947091548994182454&rtpof=true&sd=true" target="_blank" rel="noopener">View presentation →</a>
+        </div>
+        <div class="project-body">
+          <p>
+            An executive-ready EBITDA bridge presentation breaking down period-over-period earnings
+            movement into its underlying drivers — volume, price, cost, and FX — built to walk leadership
+            through performance variance in a clear, defensible narrative.
+          </p>
+          <div class="metric-strip">
+            <div class="metric"><div class="val">Bridge</div><div class="lbl">Driver-level variance</div></div>
+            <div class="metric"><div class="val">Board-ready</div><div class="lbl">Executive narrative</div></div>
+          </div>
+        </div>
+        <div class="tool-tags"><span>PowerPoint</span><span>EBITDA Bridge Analysis</span><span>Executive Reporting</span></div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project">
+        <div class="project-head">
+          <div>
+            <span class="project-id">SCHEDULE 05 — REPORTING &amp; VISUALIZATION</span>
+            <h4>Sales Dashboard</h4>
+            <div class="project-sub">Self-directed portfolio build · Commercial Reporting</div>
+          </div>
+          <a class="project-link" href="https://drive.google.com/file/d/1_-CDemdidj8BWpvGLL_cS5_SmNROXnaI/view?usp=drivesdk" target="_blank" rel="noopener">View dashboard →</a>
+        </div>
+        <div class="project-body">
+          <p>
+            An interactive sales performance dashboard translating raw transactional data into a
+            decision-ready view — revenue trends, regional and product-line breakdowns, and KPI tracking
+            built for fast executive consumption.
+          </p>
+          <div class="metric-strip">
+            <div class="metric"><div class="val">KPI</div><div class="lbl">Executive view</div></div>
+            <div class="metric"><div class="val">Regional</div><div class="lbl">Product / territory cuts</div></div>
+          </div>
+        </div>
+        <div class="tool-tags"><span>Excel</span><span>Dashboarding</span><span>Data Visualization</span></div>
+      </div>
+
+    </section>
+
+    <!-- COMPETENCIES -->
+    <section class="section">
+      <div class="section-head">
+        <h3>Core Competencies</h3>
+        <span class="count mono">Applied across all schedules</span>
+      </div>
+      <div class="comp-grid">
+        <div class="comp-cell">
+          <span class="num">A</span>
+          <h5>Financial Modeling</h5>
+          <p>3-statement integration, DCF &amp; comps valuation, M&amp;A / accretion-dilution, scenario &amp; sensitivity analysis.</p>
+        </div>
+        <div class="comp-cell">
+          <span class="num">B</span>
+          <h5>FP&amp;A</h5>
+          <p>Budgeting, rolling forecasts, variance analysis, driver-based planning, KPI dashboards.</p>
+        </div>
+        <div class="comp-cell">
+          <span class="num">C</span>
+          <h5>Corporate Finance</h5>
+          <p>WACC / CAPM, capital structure analysis, working capital management, project-level finance.</p>
+        </div>
+        <div class="comp-cell">
+          <span class="num">D</span>
+          <h5>Tools &amp; Automation</h5>
+          <p>Advanced Excel, Python (openpyxl) for programmatic model builds, AI-assisted financial analysis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <h3>Let's talk numbers.</h3>
+      <p>Actively seeking FP&amp;A, financial analysis, and corporate finance roles — remote-first, open to relocation and visa sponsorship across the UK, Canada, UAE, EU, and US.</p>
+      <div class="footer-links">
+        <a href="mailto:samueloyekoya335@gmail.com">Email →</a>
+        <a href="https://www.linkedin.com/in/oyekoya-samuel" target="_blank" rel="noopener">LinkedIn →</a>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
