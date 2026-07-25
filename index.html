@@ -276,52 +276,6 @@
     letter-spacing:0.05em;
   }
 
-  /* Experience */
-  .exp-item{
-    display:flex;
-    justify-content:space-between;
-    gap:24px;
-    padding:20px 0;
-    border-bottom:1px solid rgba(27,27,24,0.1);
-    flex-wrap:wrap;
-  }
-  .exp-item:last-child{ border-bottom:none; }
-  .exp-left{ flex:1; min-width:240px; }
-  .exp-left h4{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:1.1rem;
-    margin-bottom:2px;
-  }
-  .exp-left .exp-meta{
-    font-family:'JetBrains Mono', monospace;
-    font-size:11.5px;
-    color:var(--ink-soft);
-  }
-  .exp-right{
-    flex:1.4;
-    min-width:280px;
-  }
-  .exp-right ul{
-    list-style:none;
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-  }
-  .exp-right li{
-    font-size:13.5px;
-    line-height:1.55;
-    color:var(--ink);
-    padding-left:16px;
-    position:relative;
-  }
-  .exp-right li::before{
-    content:"—";
-    position:absolute;
-    left:0;
-    color:var(--brass);
-  }
-
   /* Project schedule rows */
   .project{
     border:1px solid rgba(27,27,24,0.12);
@@ -555,40 +509,6 @@
         <div class="checks-row"><span class="label">Circularity resolved (revolver / cash sweep)</span><span class="status">Passed</span></div>
         <div class="checks-row"><span class="label">Formula audit — zero unresolved errors</span><span class="status">Passed</span></div>
         <div class="checks-row"><span class="label">Sensitivity &amp; scenario tables cross-checked</span><span class="status">Passed</span></div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section class="section">
-      <div class="section-head">
-        <h3>Experience</h3>
-        <span class="count mono">Applied finance work</span>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-left">
-          <h4>Financial Analyst — FP&amp;A</h4>
-          <div class="exp-meta">Lagos State Internal Revenue Service (LIRS)<br>2022 — Present</div>
-        </div>
-        <div class="exp-right">
-          <ul>
-            <li>Built integrated 3-statement models improving forecast accuracy by 25%, adopted as the department's standard planning tool.</li>
-            <li>Deployed Power BI KPI dashboards across business units, cutting management report turnaround by 40%.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-left">
-          <h4>Finance &amp; Operations Analyst</h4>
-          <div class="exp-meta">Omotayo Construction Company<br>2019 — 2022</div>
-        </div>
-        <div class="exp-right">
-          <ul>
-            <li>Modeled project-level financials for capital works up to $5M; variance analysis flagged an 18% cost overrun, protecting margins.</li>
-            <li>Produced monthly management accounts presented directly to senior leadership.</li>
-          </ul>
-        </div>
       </div>
     </section>
 
